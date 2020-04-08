@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: gitlab-runner
+    hostname: gitlab-runner
+    volumes:
+      - './data/gitlab-runner/config:/etc/gitlab-runner:Z'
+      - './config.template.toml:/config.template.toml'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './data/gitlab-runner/builds:/builds'
+      - './data/gitlab-runner/cache:/cache'
+    privileged: true
+    networks:
+      - gitlab-network
+
+networks:
+  gitlab-network:
+    name: gitlab-network
+

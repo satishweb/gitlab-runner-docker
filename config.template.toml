@@ -1,0 +1,5 @@
+concurrent = 8
+check_interval = 0
+#log_level = "debug"
+
+[[runners]]
