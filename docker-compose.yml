@@ -9,6 +9,7 @@ services:
       - './data/gitlab-runner/config:/etc/gitlab-runner:Z'
       - './config.template.toml:/config.template.toml'
       - '/var/run/docker.sock:/var/run/docker.sock'
+      - '/etc/docker/certs.d:/etc/docker/certs.d'
       - './data/gitlab-runner/builds:/builds'
       - './data/gitlab-runner/cache:/cache'
     privileged: true
